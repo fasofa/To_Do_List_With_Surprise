@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Delius&family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap'); /* โหลดฟอนต์จาก Google Fonts */
+
+* { /* กำหนดค่าพื้นฐานให้ทุก element */
+    padding: 0; /* ไม่มีระยะขอบใน */
+    margin: 0;  /* ไม่มีระยะขอบนอก */
+    box-sizing: border-box; /* คำนวณขนาดแบบรวม border และ padding */
+}
+
+body { /* สไตล์ของ body */
+    font-family: "Sour Gummy", sans-serif; /* ใช้ฟอนต์ Sour Gummy */
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    height: 100vh; /* สูงเต็มหน้าจอ */
+    background: url('pic_web.jpg') no-repeat center center/cover; /* ใส่รูปพื้นหลัง */
+}
+
+.container { /* กล่องครอบ todo-list */
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    width: 100%; /* กว้างเต็ม */
+    height: 100%; /* สูงเต็ม */
+    padding: 0 20px; /* ระยะขอบซ้ายขวา */
+}
+
+.todo-list { /* กล่องหลักของ to-do list */
+    width: 100%; /* กว้างเต็ม */
+    max-width: 400px; /* กว้างสุด 400px */
+    padding: 2rem; /* ระยะขอบใน */
+    display: flex; /* ใช้ flexbox */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    flex-direction: column; /* เรียงแนวตั้ง */
+    gap: 30px; /* ระยะห่างระหว่างลูก */
+    color: #fff; /* สีตัวอักษรขาว */
+    border-radius: 20px; /* มุมโค้ง */
+    box-shadow: 0 0 100px rgba(0, 0, 0, 0.5); /* เงา */
+    border: 3px solid rgba(255, 255, 255, 0.18); /* เส้นขอบโปร่งใส */
+    backdrop-filter: blur(10px); /* เบลอพื้นหลัง */
+}
+
+.todo-list h1 { /* หัวข้อ to-do list */
+    font-size: 2.5rem; /* ขนาดตัวอักษร */
+    text-align: center; /* จัดตรงกลาง */
+}
+
+.stat-container { /* กล่องสถิติ */
+    padding: 15px 20px; /* ระยะขอบใน */
+    border-radius: 10px; /* มุมโค้ง */
+    border: 2px solid rgba(255, 255, 255, 0.18); /* เส้นขอบโปร่งใส */
+    display: flex; /* ใช้ flexbox */
+    justify-content: space-between; /* กระจายช่องว่างระหว่างลูก */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    gap: 20px; /* ระยะห่างระหว่างลูก */
+    width: 100%; /* กว้างเต็ม */
+}
+
+.details { /* กล่องรายละเอียด */
+   width: 100%; /* กว้างเต็ม */
+}
+
+.details h3 { /* หัวข้อย่อยใน details */
+    color: #fff; /* สีขาว */
+}
+
+#progressbar { /* progress bar */
+    width: 100%; /* กว้างเต็ม */
+    height: 7px; /* สูง 7px */
+    background-color: rgba(255, 194, 209, 0.3); /* สีพื้นหลังโปร่งใส */
+    border-radius: 20px; /* มุมโค้ง */
+    position: relative; /* ตำแหน่งสัมพันธ์ */
+    margin-top: 15px; /* ขอบบน 15px */
+}
+
+#progress { /* แถบ progress */
+    width: 50%; /* กว้าง 50% (ค่าเริ่มต้น) */
+    height: 100%; /* สูงเต็ม */
+    background: #ffb6c1; /* สีชมพู */
+    border-radius: 20px; /* มุมโค้ง */
+    transition: width 0.3s ease; /* transition เวลากว้างเปลี่ยน */
+}
+
+#numbers{ /* ตัวเลขแสดงจำนวน task */
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    width: 80px; /* กว้าง 80px */
+    height: 80px; /* สูง 80px */
+    background: #ffb6c1; /* สีพื้นหลังชมพู */
+    border: 2px solid rgba(255, 255, 255, 0.18); /* เส้นขอบโปร่งใส */
+    font-weight: bold; /* ตัวหนา */
+    border-radius: 50%; /* มุมโค้งเป็นวงกลม */
+    font-size: 1.5rem; /* ขนาดตัวอักษร */
+}
+
+.todo-form { /* ฟอร์มเพิ่ม task */
+    display: flex; /* ใช้ flexbox */
+    justify-content: space-between; /* กระจายช่องว่าง */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    width: 100%; /* กว้างเต็ม */
+}
+
+#todo-form input { /* ช่องกรอก task */
+    flex: 1; /* ขยายเต็มที่ */
+    padding: 10px 17px; /* ระยะขอบใน */
+    font-size: 1.1rem; /* ขนาดตัวอักษร */
+    border: none; /* ไม่มีเส้นขอบ */
+    outline: none; /* ไม่มีเส้นขอบเวลาโฟกัส */
+    border-radius: 22px; /* มุมโค้ง */
+    background-color: rgba(238, 152, 152, 0.508); /* สีพื้นหลังโปร่งใส */
+    color: rgb(255, 255, 255); /* สีตัวอักษรขาว */
+}
+
+#todo-form input::placeholder { /* placeholder ในช่องกรอก */
+    color: #ffffff; /* สีขาว */
+}
+
+#todo-form button { /* ปุ่มเพิ่ม task */
+   align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+   justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+   margin-left: 10px; /* ขอบซ้าย 10px */
+   padding: 8px; /* ระยะขอบใน */
+   border-radius: 50%; /* มุมโค้งเป็นวงกลม */
+   color: #fff; /* สีขาว */
+   font-size: 1.1rem; /* ขนาดตัวอักษร */
+   background-color: rgba(255, 194, 209, 0.3); /* สีพื้นหลังโปร่งใส */
+   border: 2px solid rgba(255, 255, 255, 0.18); /* เส้นขอบโปร่งใส */
+   cursor: pointer; /* เปลี่ยนเมาส์เป็น pointer */
+   transition: all 0.2s ease; /* transition ทุกอย่าง */
+}
+
+#todo-form button:hover { /* เมื่อเอาเมาส์ชี้ปุ่ม */
+    background-color: rgba(255, 255, 255, 1.0); /* สีพื้นหลังขาว */
+    transform: scale(1.1); /* ขยายขนาด */
+}
+
+#todos-container { /* กล่องรวม task ทั้งหมด */
+    display: flex; /* ใช้ flexbox */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+}
+
+#task-list { /* ul รายการ task */
+    width: 100%; /* กว้างเต็ม */
+}
+
+#task-list li { /* แต่ละ task */
+    display: flex; /* ใช้ flexbox */
+    align-items: normal; /* จัดแนวตั้ง */
+    justify-content: space-between; /* กระจายช่องว่าง */
+    background-color: rgba(255, 194, 209, 0.3); /* สีพื้นหลังโปร่งใส */
+    margin: 10px; /* ขอบรอบ 10px */
+    padding: 8px 10px; /* ระยะขอบใน */
+    border-radius: 30px; /* มุมโค้ง */
+    font-size: 1.2rem; /* ขนาดตัวอักษร */
+    color: #fff; /* สีขาว */
+    position: relative; /* ตำแหน่งสัมพันธ์ */
+    transition: box-shadow 0.2s ease; /* transition เงา */
+}
+
+#task-list li:hover { /* เมื่อเอาเมาส์ชี้ task */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* เงา */
+}
+
+#task-list li .checkbox { /* checkbox ในแต่ละ task */
+   min-width: 20px; /* กว้างขั้นต่ำ 20px */
+   height: none; /* ไม่มีความสูงกำหนด */
+   border: 2px solid rgba(255, 255, 255, 0.3); /* เส้นขอบโปร่งใส */
+   background: transparent; /* พื้นหลังโปร่งใส */
+   border-radius: 50%; /* มุมโค้งเป็นวงกลม */
+   appearance: none; /* ลบสไตล์ดั้งเดิม */
+   cursor: pointer; /* เปลี่ยนเมาส์เป็น pointer */
+   transition: all 0.2s ease; /* transition ทุกอย่าง */
+}
+
+#task-list li .checkbox:checked { /* เมื่อ checkbox ถูกติ๊ก */
+    background: #ffb6c1; /* สีชมพู */
+    transform: scale(1.1); /* ขยายขนาด */
+}
+
+#task-list li span { /* ข้อความของ task */
+   flex: 1; /* ขยายเต็มที่ */
+   margin-left: 10px; /* ขอบซ้าย 10px */
+   word-wrap: break-word; /* ตัดคำ */
+}
+
+#task-list li.completed span{ /* ข้อความ task ที่เสร็จแล้ว */
+    text-decoration: 2px line-through rgb(0, 0, 0); /* ขีดเส้น */
+    color: rgb(0, 0, 0); /* สีดำ */
+}
+
+.task-buttons { /* กล่องปุ่ม edit/delete */
+    display: flex; /* ใช้ flexbox */
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+    margin-right: auto; /* ขอบขวาอัตโนมัติ */
+}
+
+.task-buttons button { /* ปุ่ม edit/delete */
+    background: rgb(255, 194, 209, 0.3); /* สีพื้นหลังโปร่งใส */
+    border: none; /* ไม่มีเส้นขอบ */
+    border-radius: 50%; /* มุมโค้งเป็นวงกลม */
+    width: 30px; /* กว้าง 30px */
+    height: 30px; /* สูง 30px */
+    color: #fff; /* สีขาว */
+    font-size: 0.8rem; /* ขนาดตัวอักษร */
+    cursor: pointer; /* เปลี่ยนเมาส์เป็น pointer */
+    transition: all 0.2s ease; /* transition ทุกอย่าง */
+    display: flex; /* ใช้ flexbox */
+    justify-content: center; /* จัดให้อยู่ตรงกลางแนวนอน */
+    align-items: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
+}
+
+.task-buttons button:hover { /* เมื่อเอาเมาส์ชี้ปุ่ม */
+    transform: scale(1.2); /* ขยายขนาด */
+}
+
+.task-buttons .edit-btn { /* ปุ่ม edit */
+    background: rgb(232, 226, 33); /* สีเหลือง */
+    margin-left: 3px ; /* ขอบซ้าย 3px */
+}
+
+.task-buttons .delete-btn { /* ปุ่มลบ */
+    background: rgba(194, 4, 4, 0.364); /* สีแดงโปร่งใส */
+}
+
+#hbd-message { /* ข้อความ HBD กลางจอ */
+    position: fixed; /* ติดกลางจอ */
+    top: 50%; /* ตำแหน่งบน 50% */
+    left: 50%; /* ตำแหน่งซ้าย 50% */
+    transform: translate(-50%, -50%); /* ขยับให้อยู่ตรงกลางจริง */
+    font-size: 4rem; /* ขนาดตัวอักษรใหญ่ */
+    color: #ff69b4; /* สีชมพู */
+    font-weight: bold; /* ตัวหนา */
+    text-shadow: 2px 2px 20px #fff, 0 0 40px #ff69b4; /* เงา */
+    z-index: 9999; /* อยู่บนสุด */
+    pointer-events: none; /* ไม่รับ event mouse */
+    user-select: none; /* เลือกข้อความไม่ได้ */
+    text-align: center; /* จัดข้อความตรงกลาง */
+    padding: 1rem 2rem; /* ระยะขอบใน */
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html> <!-- ประกาศชนิดเอกสาร HTML -->
+<html lang="en"> <!-- เริ่มต้นแท็ก html และกำหนดภาษาเป็นอังกฤษ -->
+<head> <!-- ส่วนหัวของเอกสาร -->
+    <meta charset="UTF-8"> <!-- กำหนด charset เป็น UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ทำให้ responsive กับอุปกรณ์ต่างๆ -->
+    <title>To-Do list</title> <!-- ชื่อหน้าเว็บ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> <!-- โหลดไอคอน Font Awesome -->
+    <link rel="stylesheet" href="style.css"> <!-- เชื่อมไฟล์ style.css -->
+</head>
+<body> <!-- เริ่มต้นเนื้อหาใน body -->
+    <div class="container"> <!-- กล่องครอบทั้งหมด -->
+        <div class="todo-list"> <!-- กล่องหลักของ to-do list -->
+            <h1>To-Do List</h1> <!-- หัวข้อหลัก -->
+            <div class="stat-container"> <!-- กล่องสถิติ -->
+                <div class="details"> <!-- กล่องรายละเอียด -->
+                    <h3>keep it Up!</h3> <!-- ข้อความกำลังใจ -->
+                    <div id="progressbar"> <!-- progress bar -->
+                        <div id="progress"></div> <!-- แถบ progress -->
+                    </div>
+                </div>
+                <div class="stats-number"> <!-- กล่องตัวเลขสถิติ -->
+                    <p id="numbers">0 / 0</p> <!-- ตัวเลขแสดงจำนวน task -->
+                </div>
+            </div>
+            <form id="todo-form"> <!-- ฟอร์มเพิ่ม task -->
+                <input type="text" id="todo-input" placeholder="Add a new task..." required> <!-- ช่องกรอก task -->
+                <button type="submit" id="add-task-btn"><i class="fa-solid fa-plus"></i></button> <!-- ปุ่มเพิ่ม task -->
+            </form>
+            <div class="todos-container"> <!-- กล่องรวม task ทั้งหมด -->
+                 <ul id="task-list">  <!-- รายการ task -->
+                    
+                 </ul>
+            </div>
+            
+            
+        </div>
+    </div>
+</body>
+<script src="script.js" ></script> <!-- เชื่อมไฟล์ JavaScript หลัก -->
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script> <!-- โหลดไลบรารี confetti -->
+</html> <!-- ปิดแท็ก html -->
